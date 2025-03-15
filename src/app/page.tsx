@@ -1,5 +1,6 @@
+import { COOKIE_NAME } from '@shared/constants';
 import { getSSRQueryClient } from '@shared/queryClient';
-import { EARNING, getMetadataTitle } from '@shared/utils';
+import { EARNING, getCookie, getMetadataTitle } from '@shared/utils';
 import { dehydrate, HydrationBoundary } from '@tanstack/react-query';
 import { openGraphImage } from 'metadata/openGraphImage';
 import { Metadata, ResolvingMetadata } from 'next';
@@ -20,7 +21,7 @@ export async function generateMetadata(
 	};
 }
 
-const Home = () => {
+const Home = async () => {
 	const queryClient = getSSRQueryClient();
 
 	// await Promise.all([
@@ -49,6 +50,8 @@ const Home = () => {
 
 	const dehydratedState = dehydrate(queryClient);
 
+	const cookie = await getCookie(COOKIE_NAME.ACCESS_TOKEN);
+	console.log(cookie);
 	return (
 		<HydrationBoundary state={dehydratedState}>
 			<h1>HOME</h1>

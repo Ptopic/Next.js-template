@@ -11,7 +11,7 @@ const metadata: Metadata = {
   description: siteConfig.websiteDescription,
   icons: [
     {
-      url: 'https://www.aitech.io/wp-content/uploads/2023/06/cropped-android-chrome-512x512-1-32x32.png',
+      url: 'https://nextjs.org/favicon.ico',
     },
   ],
   openGraph: {
