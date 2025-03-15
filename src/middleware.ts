@@ -1,5 +1,3 @@
-import { COOKIE_NAME } from '@shared/constants/cookies';
-import { getCookie } from '@shared/utils/cookie';
 import { LOGIN, SIGN_UP } from '@shared/utils/routes';
 import { NextRequest, NextResponse } from 'next/server';
 
@@ -8,9 +6,9 @@ export const config = {
 };
 
 export async function middleware(request: NextRequest) {
-  const accessToken = getCookie(COOKIE_NAME.ACCESS_TOKEN);
-  const { pathname } = request.nextUrl;
-  let user = null;
+  // const accessToken = getCookie(COOKIE_NAME.ACCESS_TOKEN);
+  // const { pathname } = request.nextUrl;
+  // let user = null;
 
 //   if (accessToken) {
 //     try {
@@ -20,11 +18,11 @@ export async function middleware(request: NextRequest) {
 //     }
 //   }
 
-  if (user) {
-    return handleAuthenticatedRequest(pathname, request.url);
-  } else {
-    return handleUnauthenticatedRequest(pathname, request.url);
-  }
+  // if (user) {
+  //   return handleAuthenticatedRequest(pathname, request.url);
+  // } else {
+  //   return handleUnauthenticatedRequest(pathname, request.url);
+  // }
 }
 
 const handleAuthenticatedRequest = (pathname: string, url: string) => {

@@ -5,11 +5,11 @@ import { COOKIE_NAME } from '@shared/constants';
 import { getCookie, removeCookie, setCookie } from './cookie';
 import { decodeJwt } from './jwt';
 
-export const readAccessTokenForCurrentAdmin = () => {
+export const readAccessTokenForCurrentAdmin = async () => {
   return getCookie(COOKIE_NAME.ADMIN_ACCESS_TOKEN);
 };
 
-export const readRefreshTokenForCurrentAdmin = () => {
+export const readRefreshTokenForCurrentAdmin = async () => {
   return getCookie(COOKIE_NAME.ADMIN_REFRESH_TOKEN);
 };
 
@@ -33,10 +33,10 @@ export const saveRefreshTokenForCurrentAdmin = async (jwt: string) => {
   });
 };
 
-export const removeAccessTokenForCurrentAdmin = () => {
+export const removeAccessTokenForCurrentAdmin = async () => {
   removeCookie(COOKIE_NAME.ADMIN_ACCESS_TOKEN);
 };
 
-export const removeRefreshTokenForCurrentAdmin = () => {
+export const removeRefreshTokenForCurrentAdmin = async () => {
   removeCookie(COOKIE_NAME.ADMIN_REFRESH_TOKEN);
 };

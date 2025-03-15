@@ -4,11 +4,11 @@ import { IAuthResponse } from '@api/auth/types';
 import { COOKIE_NAME } from '@shared/constants/cookies';
 import { getCookie, removeCookie, setCookie } from './cookie';
 
-export const getAccessToken = () => {
+export const getAccessToken = async () => {
   return getCookie(COOKIE_NAME.ACCESS_TOKEN);
 };
 
-export const getRefreshToken = () => {
+export const getRefreshToken = async () => {
   return getCookie(COOKIE_NAME.REFRESH_TOKEN);
 };
 
@@ -30,10 +30,10 @@ export const removeAuthTokens = async () => {
   await removeRefreshTokenForCurrentUser();
 };
 
-export const removeAccessTokenForCurrentUser = () => {
+export const removeAccessTokenForCurrentUser = async () => {
   removeCookie(COOKIE_NAME.ACCESS_TOKEN);
 };
 
-export const removeRefreshTokenForCurrentUser = () => {
+export const removeRefreshTokenForCurrentUser = async () => {
   removeCookie(COOKIE_NAME.REFRESH_TOKEN);
 };
